@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Aiyla Cookies — Search</title>
+
+  <style>
+    :root{
+      --bg:#f6efe6; --paper:#fffaf2; --paper2:#ffffff;
+      --brown:#6b4f3a; --brown2:#4a3425; --caramel:#c49a6c;
+      --line:#ead9c7; --shadow:0 16px 34px rgba(107,79,58,.18);
+      --green:#5f8f6b; --green-soft:#e7f2ea;
+      --r:18px; --r2:24px; --max: 980px;
+    }
+    *{box-sizing:border-box;font-family:"Comic Sans MS","Comic Sans",system-ui,Arial,sans-serif !important;font-style:normal !important;}
+    body{
+      margin:0;color:var(--brown2);
+      background:
+        radial-gradient(900px 500px at 15% 10%, rgba(196,154,108,.22), transparent 60%),
+        radial-gradient(900px 500px at 90% 30%, rgba(95,143,107,.14), transparent 60%),
+        var(--bg);
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max);margin:0 auto;padding:16px}
+
+    .topbar{position:sticky;top:0;z-index:50;background:rgba(255,250,242,.88);backdrop-filter:blur(10px);border-bottom:3px solid var(--brown)}
+    .topbar-inner{max-width:var(--max);margin:0 auto;padding:12px 16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+    .brand{display:flex;align-items:center;gap:10px}
+    .logo{width:44px;height:44px;border-radius:16px;background:linear-gradient(135deg,var(--brown),var(--caramel));box-shadow:0 12px 26px rgba(107,79,58,.18);display:grid;place-items:center;border:2px solid rgba(255,255,255,.55)}
+    .logo span{font-size:20px;transform:translateY(-1px)}
+    .name{margin:0;font-size:15px;font-weight:900}
+    .tagline{margin:0;font-size:12px;opacity:.85}
+    .nav{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+    .nav a{padding:9px 12px;border-radius:999px;border:2px dashed transparent;font-size:13px;opacity:.95}
+    .nav a:hover{border-color:var(--line);background:rgba(196,154,108,.10)}
+    .nav .active{border-color:var(--brown);background:rgba(196,154,108,.14);font-weight:900}
+
+    .searchbar{
+      margin-top:14px;
+      padding:12px;
+      border-radius:var(--r2);
+      border:2px solid var(--line);
+      background:rgba(255,250,242,.92);
+      box-shadow: 0 10px 22px rgba(107,79,58,.10);
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .searchbar input{
+      flex:1 1 240px;
+      padding:11px 12px;
+      border-radius:16px;
+      border:2px solid var(--line);
+      background:var(--paper);
+      outline:none;
+      font-size:13px;
+      font-weight:800;
+    }
+    .btn{cursor:pointer;padding:10px 12px;border-radius:999px;border:0;background:var(--brown);color:#fff;font-weight:900;font-size:13px;box-shadow:0 10px 22px rgba(107,79,58,.20);display:inline-block}
+    .btn2{cursor:pointer;padding:10px 12px;border-radius:999px;border:2px dashed var(--brown);background:#fff;color:var(--brown2);font-weight:900;font-size:13px;display:inline-block}
+    .btn2:hover{background:rgba(196,154,108,.14)}
+
+    .panel{margin-top:14px;background:rgba(255,250,242,.92);border:2px solid var(--line);border-radius:var(--r2);box-shadow:var(--shadow);overflow:hidden}
+    .content{padding:16px}
+    h1{margin:10px 0 6px;font-size:34px;font-weight:900}
+    .small{font-size:13px;opacity:.9;line-height:1.55}
+
+    .result{
+      margin-top:12px;
+      background:#fff;
+      border:2px dashed var(--line);
+      border-radius:var(--r2);
+      padding:14px;
+    }
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:6px 10px;border-radius:999px;
+      border:2px solid var(--line);
+      background:rgba(196,154,108,.10);
+      font-size:12px;font-weight:900;opacity:.95;
+    }
+    mark{
+      background: rgba(196,154,108,.45);
+      padding:0 3px;
+      border-radius:6px;
+      border:1px dashed rgba(107,79,58,.35);
+    }
+
+    @media (max-width:720px){.nav{margin-left:0;width:100%}}
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"><span>🔎</span></div>
+        <div>
+          <p class="name">Aiyla Cookies</p>
+          <p class="tagline">Search • all pages</p>
+        </div>
+      </div>
+      <nav class="nav" aria-label="Top navigation">
+        <a href="index.html">Home</a>
+        <a href="cookies.html">Cookies</a>
+        <a href="order.html">Order</a>
+        <a href="impact.html">Impact</a>
+        <a class="active" href="search.html">Search</a>
+      </nav>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <form class="searchbar" id="searchForm">
+      <input id="q" type="search" placeholder="Search across all pages… (ex: Sumatra, butter, profit)" />
+      <button class="btn" type="submit">Search</button>
+      <a class="btn2" href="index.html">Back</a>
+    </form>
+
+    <section class="panel">
+      <div class="content">
+        <h1>Search</h1>
+        <p class="small" id="meta">Type a word and press Search.</p>
+
+        <div id="results"></div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // --- Simple site index (edit text here anytime) ---
+    // Keep it short + useful: it searches these snippets.
+    const PAGES = [
+      {
+        title: "Home",
+        url: "index.html",
+        text: `Aiyla Cookies. 30% profit goes to animals in Sumatra. Our Story: experiments, KRIS oven, homeschooling, elephants in Sumatra flooding, selling is hard, introvert, keep going.`
+      },
+      {
+        title: "Cookies",
+        url: "cookies.html",
+        text: `Classic Chocolate Cookie. Ingredients include vanilla extract, butter, flour, brown sugar, caster sugar, chocolate. Weight 45g each.`
+      },
+      {
+        title: "Order",
+        url: "order.html",
+        text: `Order via Google Form or email. Quantity options. Delivery meet-up, delivery, pickup. Reminder: 30% of profit goes to animals in Sumatra.`
+      },
+      {
+        title: "Impact",
+        url: "impact.html",
+        text: `Impact promise: 30% of profit donated to help animals in Sumatra. Will share updates and receipts in Instagram highlight.`
+      }
+    ];
+
+    function getQuery(){
+      const p = new URLSearchParams(location.search);
+      return (p.get("q") || "").trim();
+    }
+    function escHtml(s){
+      return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    }
+    function highlight(text, q){
+      const re = new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'), "gi");
+      return escHtml(text).replace(re, m => `<mark>${m}</mark>`);
+    }
+    function snippet(text, q){
+      const lower = text.toLowerCase();
+      const idx = lower.indexOf(q.toLowerCase());
+      if (idx < 0) return escHtml(text.slice(0, 140)) + (text.length > 140 ? "…" : "");
+      const start = Math.max(0, idx - 50);
+      const end = Math.min(text.length, idx + 90);
+      const chunk = text.slice(start, end);
+      const prefix = start > 0 ? "…" : "";
+      const suffix = end < text.length ? "…" : "";
+      return prefix + highlight(chunk, q) + suffix;
+    }
+
+    const input = document.getElementById("q");
+    const form = document.getElementById("searchForm");
+    const meta = document.getElementById("meta");
+    const results = document.getElementById("results");
+
+    function render(){
+      const q = getQuery();
+      input.value = q;
+
+      if(!q){
+        meta.textContent = "Type a word and press Search.";
+        results.innerHTML = "";
+        return;
+      }
+
+      const matches = PAGES
+        .map(p => {
+          const count = (p.text.match(new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'), "gi")) || []).length;
+          return { ...p, count };
+        })
+        .filter(p => p.count > 0)
+        .sort((a,b)=> b.count - a.count);
+
+      if(!matches.length){
+        meta.textContent = `No results for "${q}". Try another word.`;
+        results.innerHTML = "";
+        return;
+      }
+
+      meta.textContent = `Results for "${q}" • ${matches.length} page(s)`;
+
+      results.innerHTML = matches.map(p => `
+        <div class="result">
+          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+            <a class="pill" href="${p.url}">Open: ${p.title}</a>
+            <span class="pill">${p.count} match(es)</span>
+          </div>
+          <div style="margin-top:10px;line-height:1.6;font-size:14px;">
+            ${snippet(p.text, q)}
+          </div>
+        </div>
+      `).join("");
+    }
+
+    form.addEventListener("submit", (e)=>{
+      e.preventDefault();
+      const q = input.value.trim();
+      const url = new URL(location.href);
+      url.searchParams.set("q", q);
+      location.href = url.toString();
+    });
+
+    render();
+  </script>
+</body>
+</html>
