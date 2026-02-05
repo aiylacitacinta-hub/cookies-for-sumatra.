@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Aiyla Cookies — Impact</title>
+
+  <style>
+    :root{
+      --bg:#f6efe6; --paper:#fffaf2; --paper2:#ffffff;
+      --brown:#6b4f3a; --brown2:#4a3425; --caramel:#c49a6c;
+      --line:#ead9c7; --shadow:0 16px 34px rgba(107,79,58,.18);
+      --green:#5f8f6b; --green-soft:#e7f2ea;
+      --r:18px; --r2:24px; --max: 980px;
+    }
+    *{box-sizing:border-box;font-family:"Comic Sans MS","Comic Sans",system-ui,Arial,sans-serif !important;font-style:normal !important;}
+    body{
+      margin:0;color:var(--brown2);
+      background:
+        radial-gradient(900px 500px at 15% 10%, rgba(196,154,108,.22), transparent 60%),
+        radial-gradient(900px 500px at 90% 30%, rgba(95,143,107,.14), transparent 60%),
+        var(--bg);
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max);margin:0 auto;padding:16px}
+
+    .topbar{position:sticky;top:0;z-index:50;background:rgba(255,250,242,.88);backdrop-filter:blur(10px);border-bottom:3px solid var(--brown)}
+    .topbar-inner{max-width:var(--max);margin:0 auto;padding:12px 16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+    .brand{display:flex;align-items:center;gap:10px}
+    .logo{width:44px;height:44px;border-radius:16px;background:linear-gradient(135deg,var(--brown),var(--caramel));box-shadow:0 12px 26px rgba(107,79,58,.18);display:grid;place-items:center;border:2px solid rgba(255,255,255,.55)}
+    .logo span{font-size:20px;transform:translateY(-1px)}
+    .name{margin:0;font-size:15px;font-weight:900}
+    .tagline{margin:0;font-size:12px;opacity:.85}
+    .nav{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+    .nav a{padding:9px 12px;border-radius:999px;border:2px dashed transparent;font-size:13px;opacity:.95}
+    .nav a:hover{border-color:var(--line);background:rgba(196,154,108,.10)}
+    .nav .active{border-color:var(--brown);background:rgba(196,154,108,.14);font-weight:900}
+
+    .impact-badge{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:999px;background:var(--green-soft);border:2px solid var(--green);color:#2f4f39;font-size:12px;font-weight:900}
+    .impact-dot{width:10px;height:10px;border-radius:999px;background:var(--green);box-shadow:0 0 0 5px rgba(95,143,107,.18)}
+
+    .panel{background:rgba(255,250,242,.92);border:2px solid var(--line);border-radius:var(--r2);box-shadow:var(--shadow);overflow:hidden}
+    .content{padding:16px}
+    h1{margin:10px 0 6px;font-size:34px;font-weight:900}
+    .small{font-size:14px;line-height:1.75;opacity:.95;max-width:75ch}
+
+    .card{margin-top:12px;background:#fff;border:2px dashed var(--line);border-radius:var(--r2);padding:14px}
+    .list{margin:10px 0 0;padding-left:18px}
+    .list li{margin:6px 0}
+
+    .btn{cursor:pointer;padding:10px 12px;border-radius:999px;border:0;background:var(--brown);color:#fff;font-weight:900;font-size:13px;box-shadow:0 10px 22px rgba(107,79,58,.20);display:inline-block}
+    .btn2{cursor:pointer;padding:10px 12px;border-radius:999px;border:2px dashed var(--brown);background:#fff;color:var(--brown2);font-weight:900;font-size:13px;display:inline-block}
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;align-items:center}
+
+    @media (max-width:720px){.nav{margin-left:0;width:100%}}
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"><span>🌱</span></div>
+        <div>
+          <p class="name">Aiyla Cookies</p>
+          <p class="tagline">Impact • Sumatra animals</p>
+        </div>
+      </div>
+      <nav class="nav" aria-label="Top navigation">
+        <a href="index.html">Home</a>
+        <a href="cookies.html">Cookies</a>
+        <a href="order.html">Order</a>
+        <a class="active" href="impact.html">Impact</a>
+      </nav>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <section class="panel">
+      <div class="content">
+        <div class="impact-badge"><span class="impact-dot"></span><span>30% profit → animals in Sumatra</span></div>
+        <h1>Impact</h1>
+        <p class="small">
+          This is my promise: <strong>30% of profit</strong> from cookie sales is donated to help animals in <strong>Sumatra</strong>.
+          I started this because animals suffer from problems humans create — and that’s not fair.
+        </p>
+
+        <div class="card">
+          <strong>What this means</strong>
+          <ul class="list">
+            <li><strong>30% of profit</strong> is set aside for animals in Sumatra.</li>
+            <li>I will share updates (proof/receipts) in an Instagram highlight.</li>
+            <li>This business is still small — but the intention stays the same every time.</li>
+          </ul>
+        </div>
+
+        <div class="actions">
+          <a class="btn" href="order.html">Order cookies</a>
+          <a class="btn2" href="cookies.html">Back to cookies</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
