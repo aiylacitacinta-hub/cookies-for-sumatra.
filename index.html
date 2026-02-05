@@ -9,288 +9,442 @@
     :root{
       --bg:#f6efe6;
       --paper:#fffaf2;
+      --paper2:#ffffff;
       --brown:#6b4f3a;
-      --brown-dark:#4a3425;
+      --brown2:#4a3425;
       --caramel:#c49a6c;
       --line:#ead9c7;
+      --shadow:0 16px 34px rgba(107,79,58,.18);
+
       --green:#5f8f6b;
       --green-soft:#e7f2ea;
-      --shadow:0 16px 30px rgba(107,79,58,.18);
-      --radius:22px;
-      --max:960px;
+
+      --r:18px;
+      --r2:24px;
+      --max: 980px;
     }
 
     *{
       box-sizing:border-box;
       font-family:"Comic Sans MS","Comic Sans",system-ui,Arial,sans-serif !important;
-      font-style:normal !important;
+      font-style: normal !important;
     }
-
     body{
       margin:0;
-      background:var(--bg);
-      color:var(--brown-dark);
+      color:var(--brown2);
+      background:
+        radial-gradient(900px 500px at 15% 10%, rgba(196,154,108,.22), transparent 60%),
+        radial-gradient(900px 500px at 90% 30%, rgba(95,143,107,.14), transparent 60%),
+        var(--bg);
     }
+    a{ color:inherit; text-decoration:none; }
+    .wrap{ max-width:var(--max); margin:0 auto; padding:16px; }
 
-    a{text-decoration:none;color:inherit}
-
-    /* ===== TOP BAR ===== */
+    /* TOP NAV (goes to other pages) */
     .topbar{
-      position:sticky;
-      top:0;
-      z-index:10;
-      background:rgba(255,250,242,.95);
+      position:sticky; top:0; z-index:50;
+      background:rgba(255,250,242,.88);
+      backdrop-filter: blur(10px);
       border-bottom:3px solid var(--brown);
     }
-
     .topbar-inner{
       max-width:var(--max);
-      margin:auto;
+      margin:0 auto;
       padding:12px 16px;
       display:flex;
       align-items:center;
       gap:12px;
       flex-wrap:wrap;
     }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-
+    .brand{ display:flex; align-items:center; gap:10px; }
     .logo{
-      width:42px;
-      height:42px;
-      border-radius:14px;
-      background:linear-gradient(135deg,var(--brown),var(--caramel));
-      display:grid;
-      place-items:center;
-      color:white;
-      font-size:20px;
-      box-shadow:var(--shadow);
+      width:44px; height:44px; border-radius:16px;
+      background: linear-gradient(135deg, var(--brown), var(--caramel));
+      box-shadow: 0 12px 26px rgba(107,79,58,.18);
+      display:grid; place-items:center;
+      border:2px solid rgba(255,255,255,.55);
     }
-
-    .brand-text{
-      line-height:1.1;
-    }
-
-    .brand-text strong{
-      font-size:14px;
-    }
-
-    .brand-text span{
-      font-size:11px;
-      opacity:.8;
-    }
+    .logo span{ font-size:20px; transform:translateY(-1px); }
+    .brand-title{ line-height:1.1; }
+    .brand-title .name{ margin:0; font-size:15px; font-weight:900; }
+    .brand-title .tagline{ margin:0; font-size:12px; opacity:.85; }
 
     .nav{
       margin-left:auto;
       display:flex;
       gap:8px;
-      align-items:center;
       flex-wrap:wrap;
+      align-items:center;
     }
-
     .nav a{
-      padding:8px 12px;
+      padding:9px 12px;
       border-radius:999px;
       border:2px dashed transparent;
       font-size:13px;
+      opacity:.95;
     }
-
-    .nav a.active{
+    .nav a:hover{
+      border-color:var(--line);
+      background:rgba(196,154,108,.10);
+    }
+    .nav .active{
       border-color:var(--brown);
-      background:rgba(196,154,108,.15);
+      background:rgba(196,154,108,.14);
       font-weight:900;
     }
 
-    .nav a:hover{
-      background:rgba(196,154,108,.15);
-    }
-
-    /* ===== SEARCH ===== */
-    .search{
+    /* BADGE */
+    .impact-badge{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
       padding:8px 12px;
       border-radius:999px;
-      border:2px dashed var(--brown);
-      font-size:13px;
-      outline:none;
-      width:140px;
-    }
-
-    .search:focus{
-      background:rgba(196,154,108,.15);
-    }
-
-    /* ===== MAIN ===== */
-    main{
-      max-width:var(--max);
-      margin:auto;
-      padding:16px;
-    }
-
-    .card{
-      background:var(--paper);
-      border:2px solid var(--line);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:18px;
-    }
-
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      background:var(--green-soft);
+      background: var(--green-soft);
       border:2px solid var(--green);
-      padding:6px 12px;
-      border-radius:999px;
+      color:#2f4f39;
       font-size:12px;
       font-weight:900;
-      color:#2f4f39;
+    }
+    .impact-dot{
+      width:10px; height:10px;
+      border-radius:999px;
+      background:var(--green);
+      box-shadow: 0 0 0 5px rgba(95,143,107,.18);
     }
 
-    h1{
-      margin:12px 0 6px;
-      font-size:32px;
-    }
-
-    p{
-      line-height:1.7;
-      font-size:14px;
-    }
-
-    .story{
-      margin-top:16px;
-      padding:16px;
-      background:#fff;
-      border:2px dashed var(--line);
-      border-radius:var(--radius);
-    }
-
-    .buttons{
+    /* SEARCH BAR */
+    .searchbar{
       margin-top:14px;
+      padding:12px;
+      border-radius:var(--r2);
+      border:2px solid var(--line);
+      background:rgba(255,250,242,.92);
+      box-shadow: 0 10px 22px rgba(107,79,58,.10);
       display:flex;
       gap:10px;
       flex-wrap:wrap;
+      align-items:center;
     }
-
-    .btn{
-      padding:10px 14px;
+    .searchbar input{
+      flex: 1 1 240px;
+      padding:11px 12px;
+      border-radius:16px;
+      border:2px solid var(--line);
+      background:var(--paper);
+      outline:none;
+      font-size:13px;
+      font-weight:800;
+    }
+    .searchbar .meta{
+      font-size:12px;
+      font-weight:900;
+      opacity:.85;
+      white-space:nowrap;
+    }
+    .sbtn{
+      cursor:pointer;
+      padding:10px 12px;
       border-radius:999px;
+      border:0;
       background:var(--brown);
       color:white;
       font-weight:900;
       font-size:13px;
-      box-shadow:var(--shadow);
+      box-shadow: 0 10px 22px rgba(107,79,58,.16);
+      white-space:nowrap;
     }
-
-    .btn-outline{
-      padding:10px 14px;
+    .sbtn:hover{ filter:brightness(.95); transform: translateY(-1px); }
+    .sbtn2{
+      cursor:pointer;
+      padding:10px 12px;
       border-radius:999px;
       border:2px dashed var(--brown);
-      background:white;
+      background:#fff;
+      color:var(--brown2);
       font-weight:900;
       font-size:13px;
+      white-space:nowrap;
+    }
+    .sbtn2:hover{ background:rgba(196,154,108,.14); }
+
+    mark.search-hit{
+      background: rgba(196,154,108,.45);
+      padding:0 3px;
+      border-radius:6px;
+      border:1px dashed rgba(107,79,58,.35);
+    }
+    mark.search-hit.active{
+      outline:3px solid rgba(95,143,107,.55);
+      background: rgba(95,143,107,.22);
     }
 
-    footer{
-      margin-top:20px;
+    /* CARDS */
+    .panel{
+      background:rgba(255,250,242,.92);
+      border:2px solid var(--line);
+      border-radius:var(--r2);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      margin-top:14px;
+    }
+    .hero{ padding:18px; }
+    .hero h1{
+      margin:10px 0 6px;
+      font-size:34px;
+      font-weight:900;
+    }
+    .hero p{
+      margin:0;
+      font-size:14px;
+      line-height:1.7;
+      opacity:.95;
+    }
+    .story{
+      padding:18px;
+      background: linear-gradient(180deg, rgba(196,154,108,.10), transparent 65%);
+      border-top:2px solid var(--line);
+    }
+    .kicker{
       font-size:12px;
-      opacity:.8;
-      text-align:center;
+      opacity:.85;
+      font-weight:900;
+      letter-spacing:.2px;
+    }
+    .story h2{
+      margin:6px 0 10px;
+      font-size:22px;
+      font-weight:900;
+    }
+    .story .text{
+      background:#fff;
+      border:2px dashed var(--line);
+      border-radius:var(--r2);
+      padding:14px;
+      line-height:1.75;
+      font-size:14px;
     }
 
-    @media(max-width:700px){
-      .nav{margin-left:0}
+    .actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:12px;
+      align-items:center;
+    }
+    .btn{
+      cursor:pointer;
+      padding:10px 12px;
+      border-radius:999px;
+      border:0;
+      background:var(--brown);
+      color:white;
+      font-weight:900;
+      font-size:13px;
+      box-shadow: 0 10px 22px rgba(107,79,58,.20);
+      white-space:nowrap;
+      display:inline-block;
+    }
+    .btn:hover{ filter:brightness(.95); transform: translateY(-1px); }
+    .btn2{
+      cursor:pointer;
+      padding:10px 12px;
+      border-radius:999px;
+      border:2px dashed var(--brown);
+      background:#fff;
+      color:var(--brown2);
+      font-weight:900;
+      font-size:13px;
+      white-space:nowrap;
+      display:inline-block;
+    }
+    .btn2:hover{ background:rgba(196,154,108,.14); }
+
+    @media (max-width:720px){
+      .nav{ margin-left:0; width:100%; }
     }
   </style>
 </head>
 
 <body>
-
-  <!-- TOP BAR -->
   <div class="topbar">
     <div class="topbar-inner">
       <div class="brand">
-        <div class="logo">🍪</div>
-        <div class="brand-text">
-          <strong>Aiyla Cookies</strong><br>
-          <span>Cookies for Sumatra 🐾</span>
+        <div class="logo" aria-hidden="true"><span>🍪</span></div>
+        <div class="brand-title">
+          <p class="name">Aiyla Cookies</p>
+          <p class="tagline">Cookies with a purpose • Sumatra animals</p>
         </div>
       </div>
 
-      <nav class="nav">
+      <nav class="nav" aria-label="Top navigation">
         <a class="active" href="index.html">Home</a>
         <a href="cookies.html">Cookies</a>
         <a href="order.html">Order</a>
         <a href="impact.html">Impact</a>
-        <input class="search" id="searchInput" placeholder="Search 🍪">
       </nav>
     </div>
   </div>
 
-  <!-- MAIN -->
-  <main>
-    <section class="card" id="content">
-      <div class="badge">🌱 30% profit → animals in Sumatra</div>
+  <main class="wrap">
+    <!-- SEARCH -->
+    <div class="searchbar" aria-label="Search on this page">
+      <input id="q" type="search" placeholder="Search this page… (try: elephants, Sumatra, profit)" />
+      <span class="meta" id="count">0 matches</span>
+      <button class="sbtn2" id="prev" type="button">Prev</button>
+      <button class="sbtn2" id="next" type="button">Next</button>
+      <button class="sbtn" id="clear" type="button">Clear</button>
+    </div>
 
-      <h1>Welcome 💛</h1>
-      <p>
-        This is my cookie business. It’s small, still learning, and still growing —
-        but it has a purpose.
-      </p>
+    <section class="panel">
+      <div class="hero">
+        <div class="impact-badge" title="We show this everywhere on purpose.">
+          <span class="impact-dot"></span>
+          <span>30% profit → animals in Sumatra</span>
+        </div>
+
+        <h1>Home</h1>
+        <p>
+          Welcome to my cookie business 🍪🌱
+          This is still small, still learning, still growing — but it’s honest and it has a purpose.
+        </p>
+
+        <div class="actions">
+          <a class="btn" href="order.html">Order cookies</a>
+          <a class="btn2" href="cookies.html">See the cookie</a>
+        </div>
+      </div>
 
       <div class="story">
-        <h2>My Story</h2>
-        <p>
-          I started making cookies before I even had an oven.
-          I experimented with dough, failed many times, forgot recipes,
-          and tried again.
-        </p>
-        <p>
-          When I finally got a small oven, I kept experimenting.
-          Some cookies failed. Some worked.
-          Eventually, I found a recipe that felt right.
-        </p>
-        <p>
-          But I didn’t want this to be just another cookie business.
-          So I decided that <strong>30% of the profit</strong> would go to
-          helping animals in <strong>Sumatra</strong>.
-        </p>
-        <p>
-          This is Cookies for Sumatra 🍪🐾
-        </p>
-      </div>
+        <div class="kicker">OUR STORY</div>
+        <h2>Enjoy something simple — and help something that can’t speak for itself.</h2>
 
-      <div class="buttons">
-        <a class="btn" href="order.html">Order cookies</a>
-        <a class="btn-outline" href="impact.html">See impact</a>
+        <div class="text" id="storyText">
+          <p><strong>Our Story</strong></p>
+
+          <p>This business started long before I ever sold a cookie.</p>
+
+          <p>I’ve always been interested in making cookies, but for a long time I didn’t even have an oven. So I started with cookie dough instead. There were a lot of failures. Some batches tasted bad, some tasted okay, and sometimes they tasted good—but I forgot what I had put in them, so I couldn’t repeat it.</p>
+
+          <p>When we finally got a small KRIS oven, the first thing I made was a cookie. Around the same time, I started homeschooling, and I thought: why not try turning this into a business?</p>
+
+          <p>So I kept experimenting. Trial after trial. Many of them failed. Some worked. Eventually, I found a recipe that tasted right.</p>
+
+          <p>But something still felt off.</p>
+
+          <p>I realized my cookie wasn’t different from other cookie businesses. It was just… another cookie. And I didn’t want to do this just for the sake of selling something.</p>
+
+          <p>Then one day, on the way home from my lessons, my mom showed me news about elephants in Sumatra suffering because of flooding. It stayed with me.</p>
+
+          <p>I might not be the most emotional person, and I’m not great at expressing empathy—but this hurt in a very clear way. The elephants didn’t cause climate change. They didn’t choose this. And yet they were the ones suffering. That felt deeply unfair.</p>
+
+          <p>That’s when the idea finally clicked.</p>
+
+          <p>What if eating a cookie wasn’t just about enjoying something sweet?</p>
+
+          <p>What if it could also help animals who are paying the price for human actions?</p>
+
+          <p>That’s when this business became more than baking.</p>
+
+          <p>I decided that part of the profit from my cookies would go toward helping animals in Sumatra. I planned this business for about six months. As of February 5, 2026, I still haven’t made real profit. Only one person has bought my cookies—six of them—and that person was my own mom.</p>
+
+          <p>But when that happened, I didn’t feel embarrassed. I felt grateful. For the first time, I thought: maybe this can actually work.</p>
+
+          <p>The hardest part of this journey isn’t baking—it’s selling. I’m an introvert. Talking to people, convincing them, and facing rejection is scary for me. Standing in front of many people feels overwhelming. Sales doesn’t come naturally to me at all.</p>
+
+          <p>But this business isn’t about being loud or confident. It’s about doing something meaningful, even when it’s uncomfortable.</p>
+
+          <p>I know I don’t have to do everything alone. I have a sibling who’s good at sales, and maybe they’ll help. This business doesn’t have to look perfect or impressive right now. It just has to stay honest.</p>
+
+          <p>This is still a small business. Still learning. Still growing.</p>
+
+          <p>But every cookie carries the same intention: enjoy something simple—and help something that can’t speak for itself.</p>
+
+          <p>And for now, that’s enough to keep going. 🍪🌱</p>
+        </div>
       </div>
     </section>
-
-    <footer>
-      Made with 🍪 by Aiyla • GitHub Pages
-    </footer>
   </main>
 
-  <!-- SEARCH SCRIPT -->
   <script>
-    const searchInput = document.getElementById("searchInput");
-    const content = document.getElementById("content");
+    // Search + highlight inside #storyText
+    const input = document.getElementById('q');
+    const story = document.getElementById('storyText');
+    const countEl = document.getElementById('count');
+    const btnPrev = document.getElementById('prev');
+    const btnNext = document.getElementById('next');
+    const btnClear = document.getElementById('clear');
 
-    searchInput.addEventListener("input", () => {
-      const term = searchInput.value.toLowerCase();
-      const text = content.innerText.toLowerCase();
+    const originalHTML = story.innerHTML;
+    let hits = [];
+    let activeIndex = -1;
 
-      if (term.length < 2) return;
+    function escapeRegExp(s){
+      return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
 
-      if (text.includes(term)) {
-        content.scrollIntoView({behavior:"smooth"});
+    function clearHighlights(){
+      story.innerHTML = originalHTML;
+      hits = [];
+      activeIndex = -1;
+      countEl.textContent = '0 matches';
+    }
+
+    function setActive(i){
+      if (!hits.length) return;
+      hits.forEach(el => el.classList.remove('active'));
+      activeIndex = (i + hits.length) % hits.length;
+      const el = hits[activeIndex];
+      el.classList.add('active');
+      el.scrollIntoView({ behavior:'smooth', block:'center' });
+      countEl.textContent = `${hits.length} matches • ${activeIndex+1}/${hits.length}`;
+    }
+
+    function runSearch(){
+      const q = input.value.trim();
+      // always reset to original first
+      story.innerHTML = originalHTML;
+
+      if (!q){
+        hits = [];
+        activeIndex = -1;
+        countEl.textContent = '0 matches';
+        return;
+      }
+
+      const re = new RegExp(escapeRegExp(q), 'gi');
+
+      // Replace only in text nodes (safe-ish approach: work on HTML string but avoid breaking tags by using a trick)
+      // We keep it simple: story text is mostly <p> and <strong>, so this works fine.
+      story.innerHTML = story.innerHTML.replace(re, (m)=>`<mark class="search-hit">${m}</mark>`);
+
+      hits = Array.from(story.querySelectorAll('mark.search-hit'));
+      if (!hits.length){
+        countEl.textContent = '0 matches';
+        activeIndex = -1;
+        return;
+      }
+      setActive(0);
+    }
+
+    input.addEventListener('input', runSearch);
+    input.addEventListener('keydown', (e)=>{
+      if (e.key === 'Enter'){
+        e.preventDefault();
+        setActive(activeIndex + 1);
       }
     });
-  </script>
 
+    btnNext.addEventListener('click', ()=> setActive(activeIndex + 1));
+    btnPrev.addEventListener('click', ()=> setActive(activeIndex - 1));
+    btnClear.addEventListener('click', ()=>{
+      input.value = '';
+      clearHighlights();
+      input.focus();
+    });
+
+    // Start clean
+    clearHighlights();
+  </script>
 </body>
 </html>
