@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Aiyla Cookies — Home</title>
+
+  <style>
+    :root{
+      --bg:#f6efe6; --paper:#fffaf2; --paper2:#ffffff;
+      --brown:#6b4f3a; --brown2:#4a3425; --caramel:#c49a6c;
+      --line:#ead9c7; --shadow:0 16px 34px rgba(107,79,58,.18);
+      --green:#5f8f6b; --green-soft:#e7f2ea;
+      --r:18px; --r2:24px; --max: 1020px;
+    }
+    *{box-sizing:border-box;font-family:"Comic Sans MS","Comic Sans",system-ui,Arial,sans-serif !important;font-style:normal !important;}
+    body{
+      margin:0; color:var(--brown2);
+      background:
+        radial-gradient(900px 500px at 15% 10%, rgba(196,154,108,.22), transparent 60%),
+        radial-gradient(900px 500px at 90% 30%, rgba(95,143,107,.14), transparent 60%),
+        var(--bg);
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max);margin:0 auto;padding:16px}
+
+    .topbar{
+      position:sticky;top:0;z-index:50;
+      background:rgba(255,250,242,.88);backdrop-filter:blur(10px);
+      border-bottom:3px solid var(--brown);
+    }
+    .topbar-inner{max-width:var(--max);margin:0 auto;padding:12px 16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+    .brand{display:flex;align-items:center;gap:10px}
+    .logo{width:44px;height:44px;border-radius:16px;background:linear-gradient(135deg,var(--brown),var(--caramel));box-shadow:0 12px 26px rgba(107,79,58,.18);display:grid;place-items:center;border:2px solid rgba(255,255,255,.55)}
+    .logo span{font-size:20px;transform:translateY(-1px)}
+    .brand-title{line-height:1.1}
+    .brand-title .name{margin:0;font-size:15px;font-weight:900}
+    .brand-title .tagline{margin:0;font-size:12px;opacity:.85}
+
+    .nav{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+    .nav a{padding:9px 12px;border-radius:999px;border:2px dashed transparent;font-size:13px;opacity:.95}
+    .nav a:hover{border-color:var(--line);background:rgba(196,154,108,.10)}
+    .nav .active{border-color:var(--brown);background:rgba(196,154,108,.14);font-weight:900}
+
+    .impact-badge{
+      display:inline-flex;gap:8px;align-items:center;
+      padding:8px 12px;border-radius:999px;
+      background:var(--green-soft);border:2px solid var(--green);
+      color:#2f4f39;font-size:12px;font-weight:900;
+    }
+    .impact-dot{width:10px;height:10px;border-radius:999px;background:var(--green);box-shadow:0 0 0 5px rgba(95,143,107,.18)}
+
+    .panel{background:rgba(255,250,242,.92);border:2px solid var(--line);border-radius:var(--r2);box-shadow:var(--shadow);overflow:hidden}
+    .hero{padding:18px;background:linear-gradient(180deg,rgba(196,154,108,.10),transparent 70%)}
+    .hero h1{margin:10px 0 6px;font-size:34px;font-weight:900}
+    .hero p{margin:0;font-size:14px;line-height:1.7;opacity:.95;max-width:70ch}
+
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;align-items:center}
+    .btn{cursor:pointer;padding:10px 12px;border-radius:999px;border:0;background:var(--brown);color:#fff;font-weight:900;font-size:13px;box-shadow:0 10px 22px rgba(107,79,58,.20);display:inline-block}
+    .btn:hover{filter:brightness(.95);transform:translateY(-1px)}
+    .btn2{cursor:pointer;padding:10px 12px;border-radius:999px;border:2px dashed var(--brown);background:#fff;color:var(--brown2);font-weight:900;font-size:13px;display:inline-block}
+    .btn2:hover{background:rgba(196,154,108,.14)}
+
+    .story{padding:18px;border-top:2px solid var(--line)}
+    .kicker{font-size:12px;opacity:.85;font-weight:900;letter-spacing:.2px}
+    .story h2{margin:6px 0 12px;font-size:22px;font-weight:900}
+    .text{background:#fff;border:2px dashed var(--line);border-radius:var(--r2);padding:14px;line-height:1.75;font-size:14px}
+    .text p{margin:0 0 10px}
+    .text p:last-child{margin-bottom:0}
+
+    footer{
+      margin-top:14px;padding:14px 16px;border-radius:var(--r2);
+      border:2px solid var(--line);background:rgba(196,154,108,.16);
+      font-size:12px;font-weight:900;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 12px
+    }
+    @media (max-width:720px){.nav{margin-left:0;width:100%}}
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"><span>🍪</span></div>
+        <div class="brand-title">
+          <p class="name">Aiyla Cookies</p>
+          <p class="tagline">Cookies with a purpose • Sumatra animals</p>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Top navigation">
+        <a class="active" href="index.html">Home</a>
+        <a href="cookies.html">Cookies</a>
+        <a href="order.html">Order</a>
+        <a href="impact.html">Impact</a>
+      </nav>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <section class="panel">
+      <div class="hero">
+        <div class="impact-badge" title="This appears everywhere on purpose.">
+          <span class="impact-dot"></span>
+          <span>30% profit → animals in Sumatra</span>
+        </div>
+
+        <h1>Home</h1>
+        <p>
+          Welcome to my cookie business 🍪🌱
+          It’s still small, still learning, still growing — but it’s honest and it has a purpose.
+        </p>
+
+        <div class="actions">
+          <a class="btn" href="order.html">Order cookies</a>
+          <a class="btn2" href="cookies.html">See the cookie</a>
+        </div>
+      </div>
+
+      <div class="story">
+        <div class="kicker">OUR STORY</div>
+        <h2>Enjoy something simple — and help something that can’t speak for itself.</h2>
+
+        <div class="text">
+          <p><strong>Our Story</strong></p>
+          <p>This business started long before I ever sold a cookie.</p>
+          <p>I’ve always been interested in making cookies, but for a long time I didn’t even have an oven. So I started with cookie dough instead. There were a lot of failures. Some batches tasted bad, some tasted okay, and sometimes they tasted good—but I forgot what I had put in them, so I couldn’t repeat it.</p>
+          <p>When we finally got a small KRIS oven, the first thing I made was a cookie. Around the same time, I started homeschooling, and I thought: why not try turning this into a business?</p>
+          <p>So I kept experimenting. Trial after trial. Many of them failed. Some worked. Eventually, I found a recipe that tasted right.</p>
+          <p>But something still felt off.</p>
+          <p>I realized my cookie wasn’t different from other cookie businesses. It was just… another cookie. And I didn’t want to do this just for the sake of selling something.</p>
+          <p>Then one day, on the way home from my lessons, my mom showed me news about elephants in Sumatra suffering because of flooding. It stayed with me.</p>
+          <p>I might not be the most emotional person, and I’m not great at expressing empathy—but this hurt in a very clear way. The elephants didn’t cause climate change. They didn’t choose this. And yet they were the ones suffering. That felt deeply unfair.</p>
+          <p>That’s when the idea finally clicked.</p>
+          <p>What if eating a cookie wasn’t just about enjoying something sweet? What if it could also help animals who are paying the price for human actions?</p>
+          <p>That’s when this business became more than baking.</p>
+          <p>I decided that part of the profit from my cookies would go toward helping animals in Sumatra. I planned this business for about six months. As of <strong>February 5, 2026</strong>, I still haven’t made real profit. Only one person has bought my cookies—six of them—and that person was my own mom.</p>
+          <p>But when that happened, I didn’t feel embarrassed. I felt grateful. For the first time, I thought: maybe this can actually work.</p>
+          <p>The hardest part of this journey isn’t baking—it’s selling. I’m an introvert. Talking to people, convincing them, and facing rejection is scary for me. Standing in front of many people feels overwhelming. Sales doesn’t come naturally to me at all.</p>
+          <p>But this business isn’t about being loud or confident. It’s about doing something meaningful, even when it’s uncomfortable.</p>
+          <p>I know I don’t have to do everything alone. I have a sibling who’s good at sales, and maybe they’ll help. This business doesn’t have to look perfect or impressive right now. It just has to stay honest.</p>
+          <p>This is still a small business. Still learning. Still growing.</p>
+          <p>But every cookie carries the same intention: enjoy something simple—and help something that can’t speak for itself.</p>
+          <p><strong>And for now, that’s enough to keep going. 🍪🌱</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> Aiyla Cookies</div>
+      <div><span style="color:#2f4f39;">30% profit donated to animals in Sumatra</span></div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
