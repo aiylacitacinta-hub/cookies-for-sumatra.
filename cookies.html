@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Aiyla Cookies — Cookies</title>
+
+  <style>
+    :root{
+      --bg:#f6efe6; --paper:#fffaf2; --paper2:#ffffff;
+      --brown:#6b4f3a; --brown2:#4a3425; --caramel:#c49a6c;
+      --line:#ead9c7; --shadow:0 16px 34px rgba(107,79,58,.18);
+      --green:#5f8f6b; --green-soft:#e7f2ea;
+      --r:18px; --r2:24px; --max:1120px;
+    }
+    *{box-sizing:border-box;font-family:"Comic Sans MS","Comic Sans",system-ui,Arial,sans-serif !important;font-style:normal !important;}
+    body{
+      margin:0;color:var(--brown2);
+      background:
+        radial-gradient(900px 500px at 15% 10%, rgba(196,154,108,.22), transparent 60%),
+        radial-gradient(900px 500px at 90% 30%, rgba(95,143,107,.14), transparent 60%),
+        var(--bg);
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max);margin:0 auto;padding:16px}
+
+    .topbar{position:sticky;top:0;z-index:50;background:rgba(255,250,242,.88);backdrop-filter:blur(10px);border-bottom:3px solid var(--brown)}
+    .topbar-inner{max-width:var(--max);margin:0 auto;padding:12px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+    .brand{display:flex;align-items:center;gap:10px;min-width:240px}
+    .logo{width:44px;height:44px;border-radius:16px;background:linear-gradient(135deg,var(--brown),var(--caramel));box-shadow:0 12px 26px rgba(107,79,58,.18);display:grid;place-items:center;border:2px solid rgba(255,255,255,.55)}
+    .logo span{font-size:20px;transform:translateY(-1px)}
+    .name{margin:0;font-size:15px;font-weight:900}
+    .tagline{margin:0;font-size:12px;opacity:.85}
+    .nav{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+    .nav a{padding:9px 12px;border-radius:999px;border:2px dashed transparent;font-size:13px;opacity:.95}
+    .nav a:hover{border-color:var(--line);background:rgba(196,154,108,.10)}
+    .nav .active{border-color:var(--brown);background:rgba(196,154,108,.14);font-weight:900}
+
+    .impact-badge{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:999px;background:var(--green-soft);border:2px solid var(--green);color:#2f4f39;font-size:12px;font-weight:900}
+    .impact-dot{width:10px;height:10px;border-radius:999px;background:var(--green);box-shadow:0 0 0 5px rgba(95,143,107,.18)}
+
+    .layout{display:grid;grid-template-columns:285px 1fr;gap:14px;margin-top:14px}
+    .panel{background:rgba(255,250,242,.92);border:2px solid var(--line);border-radius:var(--r2);box-shadow:var(--shadow);overflow:hidden}
+
+    .sidebar{position:sticky;top:86px;align-self:start}
+    .side-head{padding:16px;border-bottom:2px solid var(--line);background:linear-gradient(180deg,rgba(196,154,108,.12),transparent)}
+    .side-head h3{margin:10px 0 6px;font-size:15px}
+    .side-head p{margin:0;font-size:12px;opacity:.85;line-height:1.4}
+    .side-links{padding:10px;display:flex;flex-direction:column;gap:8px}
+    .side-links a{display:flex;align-items:center;justify-content:space-between;padding:11px 12px;border-radius:16px;background:#fff;border:2px dashed var(--line);font-size:13px}
+    .side-links a:hover{border-color:var(--brown);background:rgba(196,154,108,.12)}
+    .pill{font-size:11px;padding:5px 8px;border-radius:999px;border:2px solid var(--line);background:var(--paper);opacity:.95}
+
+    .content{padding:16px}
+    .hero-card{
+      border-radius:var(--r2);border:2px solid var(--line);
+      background:
+        radial-gradient(700px 280px at 25% 20%, rgba(196,154,108,.25), transparent 60%),
+        linear-gradient(135deg,#ffffff,#fff6ea);
+      padding:16px;
+    }
+    .big-title{margin:10px 0 6px;font-size:34px;font-weight:900}
+    .subtitle{margin:0 0 12px;font-size:14px;line-height:1.55;opacity:.9;max-width:60ch}
+
+    .grid{margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .card{border-radius:var(--r2);border:2px solid var(--line);background:#fff;padding:14px}
+    .card h3{margin:0 0 10px;font-size:16px}
+    .small{font-size:13px;opacity:.9;line-height:1.55}
+    ul{margin:10px 0 0;padding-left:18px}
+    li{margin:6px 0}
+
+    table{width:100%;border-collapse:separate;border-spacing:0;overflow:hidden;border-radius:16px;border:2px solid var(--line);margin-top:10px}
+    th,td{padding:10px 12px;border-bottom:2px solid rgba(234,217,199,.55);text-align:left;vertical-align:top;font-size:13px}
+    th{background:rgba(196,154,108,.18);font-size:12px;text-transform:uppercase}
+    tr:last-child td{border-bottom:none}
+
+    .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+    .tag{padding:6px 10px;border-radius:999px;border:2px solid var(--brown);background:rgba(196,154,108,.10);font-size:12px;font-weight:900}
+
+    @media (max-width:920px){
+      .layout{grid-template-columns:1fr}
+      .sidebar{position:relative;top:auto}
+      .grid{grid-template-columns:1fr}
+      .brand{min-width:0}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"><span>🍪</span></div>
+        <div>
+          <p class="name">Aiyla Cookies</p>
+          <p class="tagline">Classic Chocolate Cookie • 45g • handmade</p>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Top navigation">
+        <a href="index.html">Home</a>
+        <a class="active" href="cookies.html">Cookies</a>
+        <a href="order.html">Order</a>
+        <a href="impact.html">Impact</a>
+      </nav>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <div class="layout">
+      <!-- SIDE BUTTONS = inside-page -->
+      <aside class="panel sidebar" aria-label="Sidebar navigation">
+        <div class="side-head">
+          <div class="impact-badge"><span class="impact-dot"></span><span>30% profit → animals in Sumatra</span></div>
+          <h3>Inside this page</h3>
+          <p>These buttons jump inside the Cookies page.</p>
+        </div>
+        <div class="side-links">
+          <a href="#overview">🍪 Cookie overview <span class="pill">start</span></a>
+          <a href="#ingredients">🧈 Ingredients <span class="pill">detailed</span></a>
+          <a href="#sizes">⚖️ Size & weight <span class="pill">45g</span></a>
+          <a href="#storage">🧊 Storage <span class="pill">tips</span></a>
+        </div>
+      </aside>
+
+      <section class="panel">
+        <div class="content">
+          <section class="hero-card" id="overview">
+            <div class="impact-badge"><span class="impact-dot"></span><span>30% profit → animals in Sumatra</span></div>
+            <h1 class="big-title">Classic Chocolate Cookie</h1>
+            <p class="subtitle">
+              Thick, soft-centered, deep chocolate taste. One flavor only — because consistency matters.
+            </p>
+            <div class="tags">
+              <span class="tag">🍪 bakery-style</span>
+              <span class="tag">⚖️ 45g each</span>
+              <span class="tag" style="border-color:var(--green);background:var(--green-soft);">🌿 Sumatra animals</span>
+            </div>
+          </section>
+
+          <div class="grid">
+            <section class="card" id="sizes">
+              <h3>⚖️ Size & weight</h3>
+              <div class="small">Each cookie is <strong>45 grams</strong>. Thick and satisfying.</div>
+            </section>
+
+            <section class="card" id="storage">
+              <h3>🧊 Storage</h3>
+              <div class="small">
+                <ul>
+                  <li>Room temp: 2–3 days (airtight container)</li>
+                  <li>Fridge: up to 7 days</li>
+                  <li>Freezer: up to 30 days</li>
+                  <li>Warm it: 8–12 seconds for gooey center</li>
+                </ul>
+              </div>
+            </section>
+
+            <section class="card" id="ingredients" style="grid-column:1/-1;">
+              <h3>🧈 Ingredients (detailed)</h3>
+              <div class="small">Premium ingredients used in this cookie:</div>
+
+              <table aria-label="Ingredients table">
+                <thead>
+                  <tr><th>Ingredient</th><th>Why it’s used</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td><strong>Ladame Vanilla Bean Extract</strong></td><td>Real vanilla aroma for warm bakery taste.</td></tr>
+                  <tr><td><strong>Anchor Butter</strong></td><td>Rich flavor + soft texture.</td></tr>
+                  <tr><td><strong>Ladang Lima Cassava Flour</strong></td><td>Unique bite and helps cookies stay thick.</td></tr>
+                  <tr><td><strong>Brown Sugar</strong></td><td>Caramel notes + chewy center.</td></tr>
+                  <tr><td><strong>Caster Sugar (Aromanis)</strong></td><td>Balanced sweetness and crisp edges.</td></tr>
+                  <tr><td><strong>Milk (Milk Life)</strong></td><td>Richer dough and smoother flavor.</td></tr>
+                  <tr><td><strong>Chocolate (Van Houten)</strong></td><td>Deep cocoa taste and chocolate richness.</td></tr>
+                </tbody>
+              </table>
+
+              <div class="small" style="margin-top:10px;">
+                ⚠️ Allergens: contains dairy (butter, milk).
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
