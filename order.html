@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Aiyla Cookies — Order</title>
+
+  <style>
+    :root{
+      --bg:#f6efe6; --paper:#fffaf2; --paper2:#ffffff;
+      --brown:#6b4f3a; --brown2:#4a3425; --caramel:#c49a6c;
+      --line:#ead9c7; --shadow:0 16px 34px rgba(107,79,58,.18);
+      --green:#5f8f6b; --green-soft:#e7f2ea;
+      --r:18px; --r2:24px; --max: 980px;
+    }
+    *{box-sizing:border-box;font-family:"Comic Sans MS","Comic Sans",system-ui,Arial,sans-serif !important;font-style:normal !important;}
+    body{
+      margin:0;color:var(--brown2);
+      background:
+        radial-gradient(900px 500px at 15% 10%, rgba(196,154,108,.22), transparent 60%),
+        radial-gradient(900px 500px at 90% 30%, rgba(95,143,107,.14), transparent 60%),
+        var(--bg);
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max);margin:0 auto;padding:16px}
+
+    .topbar{position:sticky;top:0;z-index:50;background:rgba(255,250,242,.88);backdrop-filter:blur(10px);border-bottom:3px solid var(--brown)}
+    .topbar-inner{max-width:var(--max);margin:0 auto;padding:12px 16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+    .brand{display:flex;align-items:center;gap:10px}
+    .logo{width:44px;height:44px;border-radius:16px;background:linear-gradient(135deg,var(--brown),var(--caramel));box-shadow:0 12px 26px rgba(107,79,58,.18);display:grid;place-items:center;border:2px solid rgba(255,255,255,.55)}
+    .logo span{font-size:20px;transform:translateY(-1px)}
+    .name{margin:0;font-size:15px;font-weight:900}
+    .tagline{margin:0;font-size:12px;opacity:.85}
+    .nav{margin-left:auto;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+    .nav a{padding:9px 12px;border-radius:999px;border:2px dashed transparent;font-size:13px;opacity:.95}
+    .nav a:hover{border-color:var(--line);background:rgba(196,154,108,.10)}
+    .nav .active{border-color:var(--brown);background:rgba(196,154,108,.14);font-weight:900}
+
+    .impact-badge{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:999px;background:var(--green-soft);border:2px solid var(--green);color:#2f4f39;font-size:12px;font-weight:900}
+    .impact-dot{width:10px;height:10px;border-radius:999px;background:var(--green);box-shadow:0 0 0 5px rgba(95,143,107,.18)}
+
+    .panel{background:rgba(255,250,242,.92);border:2px solid var(--line);border-radius:var(--r2);box-shadow:var(--shadow);overflow:hidden}
+    .content{padding:16px}
+    h1{margin:10px 0 6px;font-size:34px;font-weight:900}
+    .small{font-size:13px;opacity:.9;line-height:1.55}
+
+    .btn{cursor:pointer;padding:10px 12px;border-radius:999px;border:0;background:var(--brown);color:#fff;font-weight:900;font-size:13px;box-shadow:0 10px 22px rgba(107,79,58,.20);display:inline-block}
+    .btn2{cursor:pointer;padding:10px 12px;border-radius:999px;border:2px dashed var(--brown);background:#fff;color:var(--brown2);font-weight:900;font-size:13px;display:inline-block}
+    .btn2:hover{background:rgba(196,154,108,.14)}
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;align-items:center}
+
+    .notice{
+      margin-top:10px;padding:12px;border-radius:16px;
+      border:2px dashed var(--green);background:var(--green-soft);
+      color:#2f4f39;font-size:12px;line-height:1.45;font-weight:800;
+    }
+
+    form{margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    label{font-size:12px;opacity:.85;font-weight:900}
+    input,select,textarea{width:100%;padding:11px 12px;border-radius:16px;border:2px solid var(--line);background:var(--paper);outline:none;font-size:13px}
+    textarea{min-height:110px;resize:vertical;grid-column:1/-1}
+    .full{grid-column:1/-1}
+    .form-actions{grid-column:1/-1;display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:4px}
+
+    @media (max-width:720px){
+      .nav{margin-left:0;width:100%}
+      form{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"><span>🍪</span></div>
+        <div>
+          <p class="name">Aiyla Cookies</p>
+          <p class="tagline">Order • Google Form or Email</p>
+        </div>
+      </div>
+      <nav class="nav" aria-label="Top navigation">
+        <a href="index.html">Home</a>
+        <a href="cookies.html">Cookies</a>
+        <a class="active" href="order.html">Order</a>
+        <a href="impact.html">Impact</a>
+      </nav>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <section class="panel">
+      <div class="content">
+        <div class="impact-badge"><span class="impact-dot"></span><span>30% profit → animals in Sumatra</span></div>
+        <h1>Order</h1>
+        <p class="small">Pick one: order with Google Form, or send an email order.</p>
+
+        <div class="actions">
+          <a class="btn" href="https://forms.gle/35dVosUdpU4NBHYU7" target="_blank" rel="noreferrer">Order via Google Form</a>
+          <a class="btn2" href="#emailOrder">Order via Email</a>
+        </div>
+
+        <div class="notice">
+          By ordering, you agree that <strong>30% of profit goes to animals in Sumatra</strong> 🐾
+        </div>
+
+        <form id="orderForm">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" required placeholder="Your name" />
+          </div>
+
+          <div>
+            <label for="contact">Your email</label>
+            <input id="contact" required placeholder="example@gmail.com" />
+          </div>
+
+          <div>
+            <label for="qty">Quantity</label>
+            <select id="qty" required>
+              <option value="1">1 cookie</option>
+              <option value="2">2 cookies</option>
+              <option value="4">4 cookies</option>
+              <option value="6">6 cookies</option>
+              <option value="12">12 cookies</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="delivery">Delivery</label>
+            <select id="delivery" required>
+              <option value="Meet-up">Meet-up</option>
+              <option value="Delivery">Delivery</option>
+              <option value="Pickup">Pickup</option>
+            </select>
+          </div>
+
+          <div class="full" id="emailOrder">
+            <label for="note">Notes (address / time)</label>
+            <textarea id="note" placeholder="Write your address + preferred time."></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button class="btn" type="submit">Submit (opens email)</button>
+            <a class="btn2" href="mailto:aiylacitacinta@gmail.com">Email me</a>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById("orderForm").addEventListener("submit", (e)=>{
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const contact = document.getElementById("contact").value.trim();
+      const qty = document.getElementById("qty").value;
+      const delivery = document.getElementById("delivery").value;
+      const note = document.getElementById("note").value.trim();
+
+      const subject = encodeURIComponent("Cookie Order — Classic Chocolate Cookie");
+      const body = encodeURIComponent(
+`Hi Aiyla! I want to order your cookies 🍪
+
+Name: ${name}
+My email: ${contact}
+Product: Classic Chocolate Cookie (45g each)
+Quantity: ${qty}
+Delivery: ${delivery}
+Notes: ${note || "-"}
+
+Reminder: 30% of profit goes to animals in Sumatra 🐾
+`
+      );
+
+      window.location.href = `mailto:aiylacitacinta@gmail.com?subject=${subject}&body=${body}`;
+    });
+  </script>
+</body>
+</html>
